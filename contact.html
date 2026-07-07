@@ -1,105 +1,109 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contact</title><meta name="description" content="Contact — exemple de livrable consultable dans le catalogue Asavao Portfolio, aux côtés de 49 autres prestations types."><meta name="theme-color" content="#eef1ea"><link rel="icon" type="image/png" href="assets/favicon.png"><link rel="stylesheet" href="assets/style.css"></head><body>
-<header class="nav"><div class="container nav-inner">
-<a class="brand" href="index.html"><img class="brand-mark" src="assets/logo.png" alt="Asavao" width="120" height="100">Portfolio</a>
-<button class="nav-toggle" id="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
-<nav class="nav-links" id="nav-links">
-<a href="index.html">Accueil</a><a href="services.html">Services</a><a href="portfolio.html">Exemples</a><a href="contact.html" class="active">Contact</a>
-</nav></div></header>
-<main><section class="section"><div class="container">
-<span class="tab">Contact</span>
-<h1>Parlons de votre projet.</h1>
-<p class="lede">Décrivez votre besoin, votre objectif et le format souhaité &mdash; vous recevrez une proposition claire, avec un exemple adapté si besoin.</p>
-<div class="contact-grid">
-<div class="contact-card">
-<span class="ref">Le plus direct</span>
-<h3>Formulaire ci-dessous</h3>
-<p>Décrivez votre besoin en quelques lignes, sans passer par une adresse email.</p>
-<a class="btn btn-outline" href="#formulaire">Aller au formulaire</a>
-</div>
-<div class="contact-card">
-<span class="ref">Commande directe</span>
-<h3>Sur ComeUp</h3>
-<p>Consultez les fiches, choisissez une prestation et commandez directement depuis la boutique.</p>
-<a class="btn btn-outline" href="#">Voir le profil ComeUp</a>
-</div>
-<div class="contact-card">
-<span class="ref">Sur-mesure</span>
-<h3>Besoin spécifique</h3>
-<p>Un format qui n'apparaît pas dans le catalogue ? Décrivez-le dans le formulaire, une fiche peut être créée sur demande.</p>
-<a class="btn btn-outline" href="#formulaire">Décrire mon besoin</a>
-</div>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contact et commande</title><meta name="description" content="Contactez ASAVAO ou envoyez une demande de commande pour une prestation."><link rel="stylesheet" href="assets/style.css"><link rel="icon" type="image/png" href="assets/favicon.png"><meta name="theme-color" content="#eef1ea"></head><body>
+<header class="nav"><div class="container nav-inner"><a class="brand" href="index.html"><img class="brand-mark" src="assets/logo.png" alt="Asavao" width="120" height="100">Portfolio</a><div class="nav-right"><nav class="nav-links" id="nav-links"><a href="index.html">Accueil</a><a href="services.html">Services &amp; tarifs</a><a href="portfolio.html">Exemples</a><a href="contact.html" class="active">Contact</a></nav><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Basculer entre le mode clair et sombre" aria-pressed="false"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg></button><button class="nav-toggle" id="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button></div></div></header>
+<main>
+<section class="hero contact-hero"><div class="container">
+<span class="badge">Contact & commande</span>
+<h1>Parlez-nous de votre projet.</h1>
+<p>Après avoir choisi une formule, ses informations sont automatiquement ajoutées au formulaire. Vous pouvez ensuite préciser votre besoin avant l’envoi.</p>
+</div></section>
+
+<section class="section"><div class="container contact-layout">
+<div class="card form-card">
+  <div id="order-summary" class="order-summary" hidden>
+    <span class="pill">Formule sélectionnée</span>
+    <h2 id="order-summary-title">Votre commande</h2>
+    <p id="order-summary-details"></p>
+  </div>
+
+  <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+    <input type="hidden" name="access_key" id="15b7ec10-9e29-4db3-8fc2-35e9d2e37df3" value="YOUR_WEB3FORMS_ACCESS_KEY">
+    <input type="hidden" name="subject" id="subject-field" value="Nouvelle demande depuis ASAVAO">
+    <input type="hidden" name="from_name" value="ASAVAO">
+    <input type="checkbox" name="botcheck" class="botcheck" tabindex="-1" autocomplete="off">
+
+    <div class="form-grid">
+      <div class="field">
+        <label for="name">Nom complet <span aria-hidden="true">*</span></label>
+        <input id="name" name="name" type="text" autocomplete="name" required placeholder="Votre nom">
+      </div>
+      <div class="field">
+        <label for="email">Adresse email <span aria-hidden="true">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required placeholder="vous@exemple.com">
+      </div>
+      <div class="field">
+        <label for="phone">Téléphone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Facultatif">
+      </div>
+      <div class="field">
+        <label for="deadline">Délai souhaité</label>
+        <select id="deadline" name="delai_souhaite">
+          <option value="">À définir</option>
+          <option>Moins de 3 jours</option>
+          <option>3 à 7 jours</option>
+          <option>1 à 2 semaines</option>
+          <option>Plus de 2 semaines</option>
+        </select>
+      </div>
+      <div class="field form-span-2">
+        <label for="service">Prestation <span aria-hidden="true">*</span></label>
+        <input id="service" name="service" type="text" required placeholder="Ex. Rédaction d’article SEO">
+      </div>
+      <div class="field">
+        <label for="formule">Formule</label>
+        <input id="formule" name="formule" type="text" placeholder="Essentiel, Standard ou Premium">
+      </div>
+      <div class="field">
+        <label for="prix">Tarif affiché</label>
+        <input id="prix" name="prix_affiche" type="text" placeholder="Ex. 20 €">
+      </div>
+      <div class="field form-span-2">
+        <label for="message">Votre besoin <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" rows="8" required placeholder="Décrivez votre objectif, le volume, le ton souhaité, les éléments à fournir et toute contrainte utile."></textarea>
+      </div>
+    </div>
+
+    <label class="consent-row">
+      <input type="checkbox" required>
+      <span>Je confirme que les informations saisies peuvent être utilisées pour répondre à ma demande.</span>
+    </label>
+
+    <button class="btn submit-btn" id="submit-button" type="submit">Envoyer la demande</button>
+    <p class="form-help">Les champs marqués d’un astérisque sont obligatoires.</p>
+    <div id="form-result" class="form-result" role="status" aria-live="polite"></div>
+  </form>
 </div>
 
-<div class="card" id="formulaire" style="margin-top:24px;padding:30px">
-<span class="ref">Formulaire</span>
-<h2>Envoyer un message</h2>
-<p>Réponse sous 24 à 48h ouvrées. Vos informations ne sont utilisées que pour vous répondre.</p>
-<form id="contact-form">
-<input type="hidden" name="access_key" value="15b7ec10-9e29-4db3-8fc2-35e9d2e37df3">
-<input type="hidden" name="subject" value="Nouveau message — Asavao Portfolio">
-<input type="hidden" name="from_name" value="Formulaire Asavao Portfolio">
-<input type="checkbox" name="botcheck" class="visually-hidden" style="display:none" tabindex="-1" autocomplete="off">
-
-<div class="form-grid">
-<div class="form-field">
-<label for="name">Nom</label>
-<input type="text" id="name" name="name" required placeholder="Votre nom">
-</div>
-<div class="form-field">
-<label for="email">Email</label>
-<input type="email" id="email" name="email" required placeholder="vous@exemple.com">
-</div>
-</div>
-
-<div class="form-field">
-<label for="service">Prestation concernée (optionnel)</label>
-<select id="service" name="service">
-<option value="">— Sélectionnez une catégorie —</option>
-<option>Rédaction</option>
-<option>Traduction</option>
-<option>Réseaux sociaux</option>
-<option>YouTube</option>
-<option>IA & prompts</option>
-<option>Développement</option>
-<option>Business</option>
-<option>Documents</option>
-<option>Autre / sur-mesure</option>
-</select>
-</div>
-
-<div class="form-field">
-<label for="message">Message</label>
-<textarea id="message" name="message" required placeholder="Décrivez votre besoin, le format souhaité et vos délais..."></textarea>
-</div>
-
-<button class="btn" type="submit">Envoyer le message</button>
-<p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-</form>
-</div>
-
-<div class="card" style="margin-top:24px">
-<h3>Avant d'écrire, pensez à préciser</h3>
-<ul>
-<li>Le type de livrable recherché (voir le <a href="services.html">catalogue</a> pour un exemple proche)</li>
-<li>Le sujet, le secteur ou le public visé</li>
-<li>Le format et la longueur attendus</li>
-<li>La date à laquelle vous en avez besoin</li>
-</ul>
-</div>
-</div></section></main><footer class="footer"><div class="container">
+<aside class="contact-aside">
+  <div class="card">
+    <h2>Comment commander ?</h2>
+    <ol class="steps">
+      <li>Choisissez un service.</li>
+      <li>Cliquez sur la formule souhaitée.</li>
+      <li>Confirmez votre choix.</li>
+      <li>Complétez puis envoyez le formulaire.</li>
+    </ol>
+  </div>
+  <div class="card">
+    <h3>Demande sans formule</h3>
+    <p>Vous pouvez aussi utiliser ce formulaire directement et décrire une demande personnalisée.</p>
+  </div>
+</aside>
+</div></section>
+</main>
+<footer class="footer"><div class="container">
 <div class="footer-grid">
 <div>
 <div class="brand" style="margin-bottom:10px"><img class="brand-mark" src="assets/logo.png" alt="Asavao" width="120" height="100">Portfolio</div>
-<p style="max-width:38ch">Catalogue de 50 livrables types — rédaction, réseaux sociaux, YouTube, prompts, développement, business et documents — pour visualiser un exemple concret avant de commander.</p>
+<p style="max-width:38ch">Catalogue de 50 prestations &mdash; rédaction, réseaux sociaux, YouTube, prompts, développement, business et documents &mdash; avec un exemple concret et des tarifs clairs pour chaque service.</p>
 </div>
 <div>
 <h4>Navigation</h4>
-<a href="index.html">Accueil</a><a href="services.html">Catalogue des services</a><a href="portfolio.html">Exemples classés</a>
+<a href="index.html">Accueil</a><a href="services.html">Services &amp; tarifs</a><a href="portfolio.html">Exemples</a>
 </div>
 <div>
 <h4>Contact</h4>
-<a href="contact.html">Demander un devis</a><a href="contact.html#formulaire">Formulaire de contact</a>
+<a href="contact.html">Demander un devis</a><a href="contact.html#contact-form">Formulaire de contact</a>
 </div>
 </div>
-<div class="footer-bottom"><span>&copy; 2026 Asavao Portfolio &mdash; démonstrations originales.</span><span>Chaque exemple illustre un type de livrable possible.</span></div>
+<div class="footer-bottom"><span>&copy; 2026 ASAVAO.</span><span>Tarifs indicatifs, ajustables selon vos besoins.</span></div>
 </div></footer><script src="assets/script.js"></script></body></html>
