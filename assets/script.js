@@ -45,6 +45,29 @@ if (search) {
   });
 }
 
+/* ---------- Sidebar : accordéon par catégorie ---------- */
+document.querySelectorAll('.sidebar-group-toggle').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var group = btn.closest('.sidebar-group');
+    var sidebar = btn.closest('.sidebar');
+    var willOpen = btn.getAttribute('aria-expanded') !== 'true';
+
+    sidebar.querySelectorAll('.sidebar-group').forEach(function (g) {
+      var b = g.querySelector('.sidebar-group-toggle');
+      var p = g.querySelector('.sidebar-group-panel');
+      b.setAttribute('aria-expanded', 'false');
+      p.hidden = true;
+      g.classList.remove('is-open');
+    });
+
+    if (willOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      group.querySelector('.sidebar-group-panel').hidden = false;
+      group.classList.add('is-open');
+    }
+  });
+});
+
 /* ---------- Confirmation avant commande ---------- */
 document.querySelectorAll('.order-card').forEach(function (card) {
   card.addEventListener('click', function (event) {
