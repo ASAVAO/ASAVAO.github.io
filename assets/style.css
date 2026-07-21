@@ -427,6 +427,28 @@ details.acc summary .sum-title small{color:var(--muted);font-family:var(--font-b
   display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.87rem;color:#A7BEAA;
 }
 
+/* ---------- bannière de consentement ---------- */
+.consent-banner{position:fixed;left:0;right:0;bottom:0;z-index:80;padding:14px}
+.consent-banner[hidden]{display:none}
+.consent-box{
+  max-width:700px;margin:0 auto;background:var(--card);border:1.5px solid var(--line);
+  border-radius:var(--radius);box-shadow:0 20px 55px -18px rgba(10,40,28,.5);
+  padding:20px 22px;
+}
+.consent-box strong{font-family:var(--font-display);font-size:1.05rem}
+.consent-box p{color:var(--muted);font-size:.92rem;margin:7px 0 14px}
+.consent-actions{display:flex;gap:10px;flex-wrap:wrap}
+.consent-actions .btn{flex:1 1 150px}
+.consent-refuse-btn{background:var(--bg-soft);color:var(--ink);border:1.5px solid var(--line)}
+.consent-refuse-btn:hover{background:var(--bg-soft);border-color:var(--muted);box-shadow:none;transform:none}
+html[data-theme='dark'] .consent-refuse-btn{background:var(--bg-soft);color:var(--ink)}
+html[data-theme='dark'] .consent-refuse-btn:hover{background:var(--bg-soft)}
+.footer-link-btn{
+  background:none;border:0;color:#EDF4EC;padding:4px 0;margin:0;
+  font:inherit;cursor:pointer;text-align:left;display:block;
+}
+.footer-link-btn:hover{color:var(--lime)}
+
 /* ---------- divers ---------- */
 .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
 .reveal.in{opacity:1;transform:none}

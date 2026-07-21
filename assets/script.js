@@ -154,6 +154,47 @@
     });
   }
 
+  /* ---------- consentement cookies (RGPD) ---------- */
+  var KEY = 'asavao-consent', SIX_MONTHS = 15778800000;
+  var banner = d.getElementById('consent-banner');
+  function readConsent() {
+    try {
+      var c = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (c && Date.now() - c.t < SIX_MONTHS) return c.v;
+    } catch (e) {}
+    return null;
+  }
+  function saveConsent(v) {
+    try { localStorage.setItem(KEY, JSON.stringify({ v: v, t: Date.now() })); } catch (e) {}
+  }
+  function purgeGA() {
+    try {
+      document.cookie.split(';').forEach(function (x) {
+        var n = x.split('=')[0].trim();
+        if (n.indexOf('_ga') === 0) {
+          document.cookie = n + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+          document.cookie = n + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.' + location.hostname;
+        }
+      });
+    } catch (e) {}
+  }
+  if (banner) {
+    var showB = function () { banner.hidden = false; };
+    var hideB = function () { banner.hidden = true; };
+    if (readConsent() === null) showB();
+    var acc = d.getElementById('consent-accept');
+    var ref = d.getElementById('consent-refuse');
+    if (acc) acc.addEventListener('click', function () {
+      saveConsent('granted'); hideB();
+      if (window.__loadGA) window.__loadGA();
+    });
+    if (ref) ref.addEventListener('click', function () {
+      saveConsent('denied'); hideB(); purgeGA();
+    });
+    var manage = d.getElementById('manage-cookies');
+    if (manage) manage.addEventListener('click', function () { showB(); });
+  }
+
   /* ---------- apparition douce au défilement ---------- */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {

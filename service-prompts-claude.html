@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) — chargé uniquement après consentement -->
+<script>(function(){var GA="G-NH1VZNHHNF";window.__loadGA=function(){if(window.__gaLoaded)return;window.__gaLoaded=true;var l=document.createElement("link");l.rel="preconnect";l.href="https://www.googletagmanager.com";document.head.appendChild(l);var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+GA;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag("js",new Date());gtag("config",GA);};try{var c=JSON.parse(localStorage.getItem("asavao-consent")||"null");if(c&&c.v==="granted"&&Date.now()-c.t<15778800000){window.__loadGA();}}catch(e){}})();</script>
 <title>Prompts d’analyse longue — exemple et tarifs dès 20 € | ASAVAO</title>
 <meta name="description" content="Des prompts longs, pensés pour analyser un document en profondeur. Exemple réel du livrable et trois formules de prix sur cette fiche.">
 <link rel="canonical" href="https://asavaomada.dev/service-prompts-claude.html">
@@ -113,9 +115,20 @@ N’invente aucune donnée absente.</code></pre></div></div>
 <a href="contact.html">Demander un devis</a>
 <a href="contact.html#contact-form">Formulaire de commande</a>
 <a href="mailto:contact@asavaomada.dev">contact@asavaomada.dev</a>
+<button type="button" class="footer-link-btn" id="manage-cookies">Gestion des cookies</button>
 </div>
 </div>
 <div class="footer-bottom"><span>&copy; 2026 ASAVAO.</span><span>Tarifs indicatifs, ajustables selon vos besoins.</span></div>
 </div></footer>
+<div class="consent-banner" id="consent-banner" role="dialog" aria-modal="false" aria-label="Gestion des cookies" hidden>
+<div class="consent-box">
+<strong>Cookies &amp; mesure d'audience</strong>
+<p>Nous utilisons Google Analytics pour mesurer la fréquentation du site et améliorer nos services. Ces traceurs ne sont déposés qu'avec votre accord, et refuser n'affecte en rien votre navigation. Votre choix est conservé 6 mois et reste modifiable via « Gestion des cookies » en bas de page.</p>
+<div class="consent-actions">
+<button class="btn consent-refuse-btn" id="consent-refuse" type="button">Tout refuser</button>
+<button class="btn" id="consent-accept" type="button">Tout accepter</button>
+</div>
+</div>
+</div>
 <script src="assets/script.js" defer></script>
 </body></html>
